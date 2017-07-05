@@ -1,0 +1,47 @@
+#body{
+    height: 600px;
+}
+#contain{
+    width: 70%;
+    height: 400px;
+    float:left;
+
+
+
+}
+#outDivCel,#outDivFahr {
+    width: 10%;
+    height: 400px;
+}
+#celsiusBar2{
+    width: 20%;
+    height:91px;
+    border: 1px solid grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius:5px;
+    bottom: 2px;
+}
+#fahrBar2{
+    width: 20%;
+    height:163px;
+    border: 1px solid grey;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius:5px;
+}
+#outDivCel{
+    float:left;
+
+}
+#outDivFahr{
+    float:left;
+
+
+}
+#contain input{
+    margin-left: 20%;
+}
+#celsiusBar3,#fahrBar3{
+    width: 100%;
+    height: 0px;
+
+}

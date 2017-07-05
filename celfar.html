@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <title>Celsius to Fahrenheit converter</title>
+</head>
+<body>
+    <div id="outDivCel">
+        <div id="celsiusBar">
+        <p><sup>o</sup>C  50</p>
+        <div id="celsiusBar2">
+            <div id="celsiusBar3">
+            </div>
+        </div>
+        <p><sup>o</sup>C  -40</p>
+        </div>
+    </div>
+    <div id="contain">
+        <input  id="toBeConverted" name="Celsius">
+        <button id="calc">Convert</button>
+        <button id="swapButton">&hArr;</button>
+        <span id="alreadyConverted"></span>
+    </div>
+    <div id="outDivFahr">
+    <div id="fahrBar">
+        <p><sup>o</sup>F  122</p>
+        <div id="fahrBar2">
+            <div id="fahrBar3">
+            </div>
+        </div>
+        <p><sup>o</sup>F -40</p>
+    </div>
+    </div>
+    <script>
+    var toBeConverted = document.getElementById("toBeConverted");
+    var alreadyConverted = document.getElementById("alreadyConverted");
+    var calc = document.getElementById("calc");
+    var swapButton = document.getElementById("swapButton");
+    var innerBarCelsius;
+    var innerBarFahr ;
+    var current;
+    var height1;
+    var height2;
+    var currentId;
+    function convert(){
+        innerBarCelsius = document.getElementById("celsiusBar3");
+        innerBarFahr = document.getElementById("fahrBar3");
+        if (toBeConverted.name == "Celsius"){
+            alreadyConverted.textContent = toBeConverted.value*9/5+32;
+            height1 = toBeConverted.value - (-40) +1;
+            height2 = alreadyConverted.textContent - (-40)+1;
+
+
+        } else {
+            alreadyConverted.textContent = (toBeConverted.value-32)*5/9;
+            height2 = toBeConverted.value - (-40) +1;
+            height1 = alreadyConverted.textContent - (-40)+1;
+        }
+
+        innerBarCelsius.style.height = height1 + "px";
+        innerBarFahr.style.height = height2 + "px";
+        innerBarCelsius.style.marginTop = (91 - height1) + "px";
+        innerBarFahr.style.marginTop = (163 - height2) + "px";
+        innerBarFahr.style.backgroundColor = 'green';
+        innerBarCelsius.style.backgroundColor = 'green';
+
+    }
+
+
+
+
+    function swap(){
+        if (toBeConverted.name == "Celsius") {
+            toBeConverted.name = "Fahrenheit";
+
+
+        }else {
+            toBeConverted.name = "Celsius";
+
+        }
+
+        current = toBeConverted.value;
+        toBeConverted.value = alreadyConverted.textContent;
+        alreadyConverted.textContent = current;
+
+        var outDivCel = document.getElementById("outDivCel").innerHTML;
+        var outDivFahr = document.getElementById("outDivFahr").innerHTML;
+        document.getElementById("outDivCel").innerHTML = outDivFahr;
+        document.getElementById("outDivFahr").innerHTML = outDivCel;
+
+
+
+
+    }
+    swapButton.addEventListener('click',swap);
+    calc.addEventListener('click',convert);
+    </script>
+</body>
+</html>
